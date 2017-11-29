@@ -41,6 +41,8 @@ class FeedNetwork(ClientNode):
 
         self.feeder = (1 + self.losses) * self.sum_snk
 
+        print(self.feeder)
+
         # self.update_attribute("feeder", self.feeder)
 
 

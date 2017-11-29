@@ -35,6 +35,8 @@ class ThermalNetwork(ClientNode):
         self.sum_snk = sum([getattr(self, 'p_snk_{}'.format(i)) for i in self.list_id_snk])
         self.feeder = (1 + self.losses) * self.sum_snk
 
+        print(self.feeder)
+
         self.update_attribute("feeder", self.feeder)
         self.update_attribute("t_supply", self.t_supply)
 
