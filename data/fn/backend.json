@@ -1,7 +1,6 @@
 {
   "name": "fn",
   "queues": {
-    "coside.cosim.simu.FEED_NETWORK": "on_block",
     "coside.cosim.simu.FEED_NETWORK.": "on_block",
     "wrapper.local.": "on_local"
   }

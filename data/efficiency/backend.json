@@ -1,7 +1,6 @@
 {
   "name": "eff",
   "queues": {
-    "coside.cosim.simu.EFFICIENCY": "on_block",
     "coside.cosim.simu.EFFICIENCY.": "on_block",
     "wrapper.local.": "on_local"
   }

@@ -35,6 +35,7 @@ class ProfileWrapper(Wrapper):
                  input_attr, output_attr):
         super().__init__(host, vhost, username, password, config_file, obnl_file,
                  input_attr, output_attr)
+        self.on_block(self._channel, *self._channel.consume("coside.cosim.simu.PROFILE"))
 
     def _get_params(self):
         return ["profile"]
