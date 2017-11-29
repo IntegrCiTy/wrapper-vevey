@@ -1,6 +1,7 @@
 {
   "name": "hysteresis",
   "queues": {
+    "coside.cosim.simu.HYSTERESIS": "on_block",
     "coside.cosim.simu.HYSTERESIS.": "on_block",
     "wrapper.local.": "on_local"
   }

@@ -47,7 +47,6 @@ class HeatPumpWrapper(Wrapper):
                  input_attr, output_attr):
         super().__init__(host, vhost, username, password, config_file, obnl_file,
                  input_attr, output_attr)
-        self._channel.basic_get("coside.cosim.simu.HEAT_PUMP")
 
     def _get_params(self):
         return ["p_nom", "K", "alpha"]

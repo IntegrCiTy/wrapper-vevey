@@ -35,7 +35,6 @@ class StorageWrapper(Wrapper):
                  input_attr, output_attr):
         super().__init__(host, vhost, username, password, config_file, obnl_file,
                  input_attr, output_attr)
-        self._channel.basic_get("coside.cosim.simu.STORAGE")
 
 
     def _get_params(self):
