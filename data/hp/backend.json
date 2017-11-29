@@ -1,7 +1,6 @@
 {
   "name": "hp",
   "queues": {
-    "coside.cosim.simu.HEAT_PUMP": "on_block",
     "coside.cosim.simu.HEAT_PUMP.": "on_block",
     "wrapper.local.": "on_local"
   }

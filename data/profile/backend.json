@@ -1,7 +1,6 @@
 {
   "name": "profile",
   "queues": {
-    "coside.cosim.simu.PROFILE": "on_block",
     "coside.cosim.simu.PROFILE.": "on_block",
     "wrapper.local.": "on_local"
   }

@@ -47,6 +47,7 @@ class FeedNetworkWrapper(Wrapper):
                  input_attr, output_attr):
         super().__init__(host, vhost, username, password, config_file, obnl_file,
                  input_attr, output_attr)
+        self._channel.basic_get("coside.cosim.simu.FEED_NETWORK")
 
     def _get_params(self):
         return ["list_id_snk", "list_id_src", "losses"]

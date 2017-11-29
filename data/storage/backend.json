@@ -1,7 +1,6 @@
 {
   "name": "storage",
   "queues": {
-    "coside.cosim.simu.STORAGE": "on_block",
     "coside.cosim.simu.STORAGE.": "on_block",
     "wrapper.local.": "on_local"
   }
