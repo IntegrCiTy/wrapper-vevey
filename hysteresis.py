@@ -63,7 +63,7 @@ class HysteresisWrapper(Wrapper):
                           io_init=ii.data_values['io_init'],
                           input_attributes=self._input_attr,
                           output_attributes=self._output_attr,
-                          is_first=False)
+                          is_first=True)
         self.send('', 'wrapper.local.' + self.name, "next")
         return node
 
