@@ -33,7 +33,8 @@ class Wrapper(Node):
             fwd = MetaMessage()
             fwd.node_name = self._name
 
-            dr.stored_data.append("values")
+            for param in self._get_params():
+                dr.stored_data.append(param)
             fwd.details.Pack(dr)
 
             self.send('', 'db.data.init', fwd.SerializeToString(),
@@ -58,6 +59,9 @@ class Wrapper(Node):
 
         self._channel.basic_ack(delivery_tag=method.delivery_tag)
         self.send('', 'wrapper.local.' + self.name, "next")
+
+    def _get_params(self):
+        raise NotImplementedError("Abstract function call.")
 
     def _create_node(self, m):
         raise NotImplementedError("Abstract function call.")

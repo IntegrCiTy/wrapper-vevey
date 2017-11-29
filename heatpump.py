@@ -48,6 +48,9 @@ class HeatPumpWrapper(Wrapper):
         super().__init__(host, vhost, username, password, config_file, obnl_file,
                  input_attr, output_attr)
 
+    def _get_params(self):
+        return ["p_nom", "K", "alpha"]
+
     def _create_node(self, m):
         ii = InitInfo()
         m.details.Unpack(ii)

@@ -48,6 +48,9 @@ class FeedNetworkWrapper(Wrapper):
         super().__init__(host, vhost, username, password, config_file, obnl_file,
                  input_attr, output_attr)
 
+    def _get_params(self):
+        return ["list_id_snk", "list_id_src", "losses"]
+
     def _create_node(self, m):
         ii = InitInfo()
         m.details.Unpack(ii)
