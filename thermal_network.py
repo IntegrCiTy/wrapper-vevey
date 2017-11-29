@@ -43,7 +43,7 @@ class ThermalNetworkWrapper(Wrapper):
                  input_attr, output_attr)
 
     def _get_params(self):
-        return ["capacity", "t_supply", "losses"]
+        return ["list_id_snk", "t_supply", "losses"]
 
     def _create_node(self, m):
         ii = InitInfo()
