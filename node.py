@@ -61,7 +61,7 @@ class Wrapper(Node):
             pass
 
         self._channel.basic_ack(delivery_tag=method.delivery_tag)
-        self.send('', 'wrapper.local.' + self.name, "next")
+        # self.send('', 'wrapper.local.' + self.name, "next")
 
     def _get_params(self):
         raise NotImplementedError("Abstract function call.")
