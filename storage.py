@@ -54,7 +54,7 @@ class StorageWrapper(Wrapper):
                        soc_init=ii.data_values['soc_init'],
                        input_attributes=self._input_attr,
                        output_attributes=self._output_attr,
-                       is_first=True)
+                       is_first=False)
         self.send('', 'wrapper.local.' + self.name, "next")
         return node
 

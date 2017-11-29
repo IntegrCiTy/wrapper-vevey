@@ -21,13 +21,9 @@ class Profile(ClientNode):
         
         # Output
         self.value = profile[0]
-        
-        # State
-        self.t = 0
 
     def step(self, current_time, time_step):
-        self.t += time_step
-        self.value = self.profile[self.t % len(self.profile)]
+        self.value = self.profile[int(current_time % len(self.profile))]
 
 
 class ProfileWrapper(Wrapper):
