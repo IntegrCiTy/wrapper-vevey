@@ -49,7 +49,7 @@ class HeatPumpWrapper(Wrapper):
                  input_attr, output_attr)
 
     def _get_params(self):
-        return ["p_nom", "K", "alpha"]
+        return ["p_nom", "alpha"]
 
     def _create_node(self, m):
         ii = InitInfo()
