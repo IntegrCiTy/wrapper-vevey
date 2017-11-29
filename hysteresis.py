@@ -34,6 +34,9 @@ class Hysteresis(ClientNode):
         if self.io == 1 and self.v_mes >= self.v_max:
             self.io = 0
 
+        self.update_attribute("io", self.io)
+        self.update_attribute("t_set", self.t_set)
+
 
 class HysteresisWrapper(Wrapper):
     def __init__(self, host, vhost, username, password, config_file, obnl_file,

@@ -29,6 +29,8 @@ class Storage(ClientNode):
     def step(self, current_time, time_step):
         self.soc += time_step / 3600 * (self.p_src - self.p_snk) / self.capacity
 
+        self.update_attribute("soc", self.soc)
+
 
 class StorageWrapper(Wrapper):
     def __init__(self, host, vhost, username, password, config_file, obnl_file,

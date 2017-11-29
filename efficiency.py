@@ -28,6 +28,8 @@ class Efficiency(ClientNode):
     def step(self, current_time, time_step):
         self.p_src = self.p_snk / self.eff
 
+        self.update_attribute("p_src", self.p_src)
+
 
 class EfficiencyWrapper(Wrapper):
     def __init__(self, host, vhost, username, password, config_file, obnl_file,

@@ -25,6 +25,8 @@ class Profile(ClientNode):
     def step(self, current_time, time_step):
         self.value = self.profile[int(current_time % len(self.profile))]
 
+        self.update_attribute("value", self.value)
+
 
 class ProfileWrapper(Wrapper):
     def __init__(self, host, vhost, username, password, config_file, obnl_file,
