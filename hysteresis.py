@@ -1,4 +1,3 @@
-
 import json
 import logging
 
@@ -69,6 +68,13 @@ if __name__ == "__main__":
     input_attr = json.loads(sys.argv[1])
     output_attr = json.loads(sys.argv[2])
 
-    w = HysteresisWrapper("172.17.0.1", "backend_vhost", "tool", "tool", sys.argv[3], sys.argv[4],
+    backend_data = json.loads(open(sys.argv[3]).read())
+    obnl_data = json.loads(open(sys.argv[4]).read())
+
+    backend_data["name"] = sys.argv[5]
+    obnl_data["name"] = sys.argv[5]
+
+    w = HysteresisWrapper("172.17.0.1", "backend_vhost", "tool", "tool",
+                          backend_data, obnl_data,
                           input_attr, output_attr)
     w.start()

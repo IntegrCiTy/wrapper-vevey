@@ -1,6 +1,5 @@
 import json
 import logging
-import uuid
 
 from ict.protobuf.db_pb2 import *
 from obnl.core.client import ClientNode
@@ -63,10 +62,10 @@ if __name__ == "__main__":
     backend_data = json.loads(open(sys.argv[3]).read())
     obnl_data = json.loads(open(sys.argv[4]).read())
 
-    node_id = uuid.uuid1()
-    backend_data["name"] = "Efficiency_"+str(node_id)
-    obnl_data["name"] = "Efficiency_"+str(node_id)
+    backend_data["name"] = sys.argv[5]
+    obnl_data["name"] = sys.argv[5]
 
-    w = EfficiencyWrapper("172.17.0.1", "backend_vhost", "tool", "tool", backend_data, obnl_data,
+    w = EfficiencyWrapper("172.17.0.1", "backend_vhost", "tool", "tool",
+                          backend_data, obnl_data,
                           input_attr, output_attr)
     w.start()
