@@ -55,7 +55,7 @@ class ThermalNetworkWrapper(Wrapper):
                               password='obnl',
                               config_file=self._obnl_file,
                               api=self,
-                              list_id_snk=ii.arrays['capacity'].values,
+                              list_id_snk=ii.arrays['list_id_snk'].strings,
                               t_supply=ii.data_values['t_supply'],
                               losses=ii.data_values['losses'],
                               input_attributes=self._input_attr,
