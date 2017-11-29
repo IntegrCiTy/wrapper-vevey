@@ -11,7 +11,7 @@ class HeatPump(ClientNode):
     """Heat pump model with COP as ratio of Carnot's COP"""
 
     def __init__(self, host, vhost, username, password, config_file, api,
-                 p_nom, K, alpha=0.25,
+                 p_nom, alpha=0.25,
                  input_attributes=None, output_attributes=None, is_first=False):
         super().__init__(host, vhost, username, password, config_file,
                          input_attributes, output_attributes, is_first)
@@ -19,7 +19,7 @@ class HeatPump(ClientNode):
         # Parameters
         self.p_nom = p_nom  # kW
         self._alpha = alpha
-        self._K = K
+        self._K = 273.15
 
         # Input
         self.io = 0
@@ -62,7 +62,6 @@ class HeatPumpWrapper(Wrapper):
                         config_file=self._obnl_file,
                         api=self,
                         p_nom=ii.data_values['p_nom'],
-                        K=ii.data_values['K'],
                         alpha=ii.data_values['alpha'],
                         input_attributes=self._input_attr,
                         output_attributes=self._output_attr,
