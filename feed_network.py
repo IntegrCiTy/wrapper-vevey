@@ -41,7 +41,7 @@ class FeedNetwork(ClientNode):
 
         self.feeder = (1 + self.losses) * self.sum_snk
 
-        self.update_attribute("feeder", self.feeder)
+        # self.update_attribute("feeder", self.feeder)
 
 
 class FeedNetworkWrapper(Wrapper):
@@ -56,6 +56,8 @@ class FeedNetworkWrapper(Wrapper):
     def _create_node(self, m):
         ii = InitInfo()
         m.details.Unpack(ii)
+
+        print(ii.arrays['list_id_snk'].strings)
 
         node = FeedNetwork(host=self.host,
                            vhost='obnl_vhost',
