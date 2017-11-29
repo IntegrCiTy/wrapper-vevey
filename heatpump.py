@@ -65,7 +65,7 @@ class HeatPumpWrapper(Wrapper):
                         alpha=ii.data_values['alpha'],
                         input_attributes=self._input_attr,
                         output_attributes=self._output_attr,
-                        is_first=False)
+                        is_first=True)
         self.send('', 'wrapper.local.' + self.name, "next")
         return node
 
