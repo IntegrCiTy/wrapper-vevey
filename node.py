@@ -27,6 +27,7 @@ class Wrapper(Node):
         m.ParseFromString(body)
 
         if m.details.Is(DataRequired.DESCRIPTOR):
+            print(method)
             dr = DataRequired()
             m.details.Unpack(dr)
 
@@ -39,6 +40,8 @@ class Wrapper(Node):
 
             self.send('', 'db.data.init', fwd.SerializeToString(),
                       reply_to='coside.cosim.simu.' + SimulationBlock.Name(dr.block) + '.' + self.name)
+
+            self._channel.basic_cancel(method.consumer_tag)
 
         elif m.details.Is(InitInfo.DESCRIPTOR):
             node = self._create_node(m)

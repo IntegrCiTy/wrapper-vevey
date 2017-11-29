@@ -1,6 +1,7 @@
 {
   "name": "tn",
   "queues": {
+    "coside.cosim.simu.THERMAL_NETWORK": "on_block",
     "coside.cosim.simu.THERMAL_NETWORK.": "on_block",
     "wrapper.local.": "on_local"
   }
