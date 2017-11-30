@@ -45,7 +45,7 @@ class FeedNetwork(ClientNode):
         print(self.feeder)
 
         self.update_attribute("feeder", self.feeder)
-        self._api.add_message(self.simulation, self.name, "feeder", self.feeder)
+        self._api.add_message(self.simulation, self.name, "feeder", current_time, self.feeder)
 
 
 class FeedNetworkWrapper(Wrapper):

@@ -36,9 +36,9 @@ class Hysteresis(ClientNode):
             self.io = 0
 
         self.update_attribute("io", self.io)
-        self._api.add_message(self.simulation, self.name, "io", self.io)
+        self._api.add_message(self.simulation, self.name, "io", current_time, self.io)
         self.update_attribute("t_set", self.t_set)
-        self._api.add_message(self.simulation, self.name, "t_set", self.t_set)
+        self._api.add_message(self.simulation, self.name, "t_set", current_time, self.t_set)
 
 
 class HysteresisWrapper(Wrapper):

@@ -31,7 +31,7 @@ class Storage(ClientNode):
         self.soc += time_step / 3600 * (self.p_src - self.p_snk) / self.capacity
 
         self.update_attribute("soc", self.soc)
-        self._api.add_message(self.simulation, self.name, "soc", self.soc)
+        self._api.add_message(self.simulation, self.name, "soc", current_time, self.soc)
 
 
 class StorageWrapper(Wrapper):

@@ -27,7 +27,7 @@ class Profile(ClientNode):
         self.value = self.profile[int(current_time % len(self.profile))]
 
         self.update_attribute("value", self.value)
-        self._api.add_message(self.simulation, self.name, "value", self.value)
+        self._api.add_message(self.simulation, self.name, "value", current_time, self.value)
 
 
 class ProfileWrapper(Wrapper):

@@ -31,7 +31,7 @@ class Efficiency(ClientNode):
         self.p_src = self.p_snk / self.eff
 
         self.update_attribute("p_src", self.p_src)
-        self._api.add_message(self.simulation, self.name, "p_src", self.p_src)
+        self._api.add_message(self.simulation, self.name, "p_src", current_time, self.p_src)
 
 
 class EfficiencyWrapper(Wrapper):

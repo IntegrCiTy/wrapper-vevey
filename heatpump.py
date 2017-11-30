@@ -43,11 +43,11 @@ class HeatPump(ClientNode):
         self.p_src = self.p_snk - self.p_ele
 
         self.update_attribute("p_snk", self.p_snk)
-        self._api.add_message(self.simulation, self.name, "p_snk", self.p_snk)
+        self._api.add_message(self.simulation, self.name, "p_snk", current_time, self.p_snk)
         self.update_attribute("p_ele", self.p_ele)
-        self._api.add_message(self.simulation, self.name, "p_ele", self.p_ele)
+        self._api.add_message(self.simulation, self.name, "p_ele", current_time, self.p_ele)
         self.update_attribute("p_src", self.p_src)
-        self._api.add_message(self.simulation, self.name, "p_src", self.p_src)
+        self._api.add_message(self.simulation, self.name, "p_src", current_time, self.p_src)
 
 
 class HeatPumpWrapper(Wrapper):
