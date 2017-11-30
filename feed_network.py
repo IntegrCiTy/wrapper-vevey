@@ -41,12 +41,12 @@ class FeedNetwork(ClientNode):
         for i in self.list_id_snk:
             if 'p_snk_{}'.format(i) in self.input_values:
                 setattr(self, 'p_snk_{}'.format(i), self.input_values['p_snk_{}'.format(i)])
-            self._api.add_message(self.simulation, self.name, "'p_snk_{}'.format(i)", current_time, getattr(self, 'p_snk_{}'.format(i)))
+            self._api.add_message(self.simulation, self.name, 'p_snk_{}'.format(i), current_time, getattr(self, 'p_snk_{}'.format(i)))
 
         for i in self.list_id_src:
             if 'p_src_{}'.format(i) in self.input_values:
                 setattr(self, 'p_src_{}'.format(i), self.input_values['p_src_{}'.format(i)])
-            self._api.add_message(self.simulation, self.name, "'p_src_{}'.format(i)", current_time, getattr(self, 'p_src_{}'.format(i)))
+            self._api.add_message(self.simulation, self.name, 'p_src_{}'.format(i), current_time, getattr(self, 'p_src_{}'.format(i)))
 
         self.sum_snk = sum([getattr(self, 'p_snk_{}'.format(i)) for i in self.list_id_snk])
         # self.sum_src = sum([getattr(self, 'p_src_{}'.format(i)) for i in self.list_id_src])
