@@ -30,8 +30,10 @@ class Storage(ClientNode):
     def step(self, current_time, time_step):
         if 'p_src' in self.input_values:
             self.p_src = self.input_values['p_src']
+        self._api.add_message(self.simulation, self.name, "p_src", current_time, self.p_src)
         if 'p_snk' in self.input_values:
             self.p_snk = self.input_values['p_snk']
+        self._api.add_message(self.simulation, self.name, "p_snk", current_time, self.p_snk)
 
         self.soc += time_step / 3600 * (self.p_src - self.p_snk) / self.capacity
 

@@ -69,7 +69,7 @@ class Wrapper(Node):
     def on_local(self, ch, method, props, body):
 
         try:
-            message = self._queue.get(timeout=0.1)
+            message = self._queue.get()
             self.send('', 'db.data.store', message.SerializeToString())
         except queue.Empty:
             pass

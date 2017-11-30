@@ -31,6 +31,7 @@ class Hysteresis(ClientNode):
     def step(self, current_time, time_step):
         if 'v_mes' in self.input_values:
             self.v_mes = self.input_values['v_mes']
+        self._api.add_message(self.simulation, self.name, "v_mes", current_time, self.v_mes)
 
         if self.io == 0 and self.v_mes <= self.v_min:
             self.io = 1

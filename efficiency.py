@@ -30,6 +30,7 @@ class Efficiency(ClientNode):
     def step(self, current_time, time_step):
         if "p_snk" in self.input_values:
             self.p_snk = self.input_values["p_snk"]
+        self._api.add_message(self.simulation, self.name, "p_snk", current_time, self.p_snk)
 
         self.p_src = self.p_snk / self.eff
 
