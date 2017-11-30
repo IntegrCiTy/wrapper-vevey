@@ -28,6 +28,9 @@ class Efficiency(ClientNode):
         self.p_src = 0
 
     def step(self, current_time, time_step):
+        if "p_snk" in self.input_values:
+            self.p_snk = self.input_values["p_snk"]
+
         self.p_src = self.p_snk / self.eff
 
         self.update_attribute("p_src", self.p_src)

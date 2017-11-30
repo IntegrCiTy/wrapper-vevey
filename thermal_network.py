@@ -22,7 +22,7 @@ class ThermalNetwork(ClientNode):
         self.losses = losses
 
         # Input
-        for i in list_id_snk:
+        for i in self.list_id_snk:
             setattr(self, 'p_snk_{}'.format(i), 0)
 
         # Output
@@ -33,6 +33,10 @@ class ThermalNetwork(ClientNode):
         self.sum_snk = 0
 
     def step(self, current_time, time_step):
+        for i in self.list_id_snk:
+            if 'p_snk_{}'.format(i) in self.input_values:
+                setattr(self, 'p_snk_{}'.format(i), self.input_values['p_snk_{}'.format(i)])
+
         self.sum_snk = sum([getattr(self, 'p_snk_{}'.format(i)) for i in self.list_id_snk])
         self.feeder = (1 + self.losses) * self.sum_snk
 

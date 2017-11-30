@@ -23,10 +23,10 @@ class FeedNetwork(ClientNode):
         self.losses = losses
 
         # Input
-        for i in list_id_snk:
+        for i in self.list_id_snk:
             setattr(self, 'p_snk_{}'.format(i), 0)
 
-        for i in list_id_src:
+        for i in self.list_id_src:
             setattr(self, 'p_src_{}'.format(i), 0)
 
         # Output
@@ -37,6 +37,15 @@ class FeedNetwork(ClientNode):
         self.sum_src = 0
 
     def step(self, current_time, time_step):
+        # Input
+        for i in self.list_id_snk:
+            if 'p_snk_{}'.format(i) in self.input_values:
+                setattr(self, 'p_snk_{}'.format(i), self.input_values['p_snk_{}'.format(i)])
+
+        for i in self.list_id_src:
+            if 'p_src_{}'.format(i) in self.input_values:
+                setattr(self, 'p_src_{}'.format(i), self.input_values['p_src_{}'.format(i)])
+
         self.sum_snk = sum([getattr(self, 'p_snk_{}'.format(i)) for i in self.list_id_snk])
         # self.sum_src = sum([getattr(self, 'p_src_{}'.format(i)) for i in self.list_id_src])
 

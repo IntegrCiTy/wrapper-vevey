@@ -29,6 +29,9 @@ class Hysteresis(ClientNode):
         self.t_set = t_set
 
     def step(self, current_time, time_step):
+        if 'v_mes' in self.input_values:
+            self.v_mes = self.input_values['v_mes']
+
         if self.io == 0 and self.v_mes <= self.v_min:
             self.io = 1
 

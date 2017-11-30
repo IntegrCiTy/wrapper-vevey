@@ -36,6 +36,14 @@ class HeatPump(ClientNode):
         self.cop = 1.0
 
     def step(self, current_time, time_step):
+        if "io" in self.input_values:
+            self.io = self.input_values["io"]
+        if "t_src" in self.input_values:
+            self.t_src = self.input_values["t_src"]
+        if "t_snk_set" in self.input_values:
+            self.t_snk_set = self.input_values["t_snk_set"]
+
+
         self.cop = self._alpha * (self._K+self.t_snk_set) / (self.t_snk_set - self.t_src)
 
         self.p_snk = self.io * self.p_nom
