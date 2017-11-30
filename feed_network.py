@@ -53,7 +53,7 @@ class FeedNetworkWrapper(Wrapper):
                  input_attr, output_attr)
 
     def _get_params(self):
-        return ["list_id_snk", "losses"]
+        return ["list_id_snk", "list_id_src", "losses"]
 
     def _create_node(self, m):
         ii = InitInfo()
@@ -68,7 +68,7 @@ class FeedNetworkWrapper(Wrapper):
                            config_file=self._obnl_file,
                            api=self,
                            list_id_snk=ii.arrays['list_id_snk'].strings,
-                           # list_id_src=ii.arrays['list_id_src'].strings,
+                           list_id_src=ii.arrays['list_id_src'].strings,
                            losses=ii.data_values['losses'],
                            input_attributes=self._input_attr,
                            output_attributes=self._output_attr,
