@@ -14,6 +14,7 @@ class ThermalNetwork(ClientNode):
                  input_attributes=None, output_attributes=None, is_first=False):
         super().__init__(host, vhost, username, password, config_file,
                          input_attributes, output_attributes, is_first)
+        self._api = api
 
         # Parameters
         self.list_id_snk = list_id_snk
@@ -38,7 +39,9 @@ class ThermalNetwork(ClientNode):
         print(self.feeder)
 
         self.update_attribute("feeder", self.feeder)
+        self._api.add_message(self.simulation, self.name, "feeder", self.feeder)
         self.update_attribute("t_supply", self.t_supply)
+        self._api.add_message(self.simulation, self.name, "t_supply", self.t_supply)
 
 
 class ThermalNetworkWrapper(Wrapper):

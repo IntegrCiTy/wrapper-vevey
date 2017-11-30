@@ -15,6 +15,7 @@ class Hysteresis(ClientNode):
                  input_attributes=None, output_attributes=None, is_first=False):
         super().__init__(host, vhost, username, password, config_file,
                          input_attributes, output_attributes, is_first)
+        self._api = api
 
         # Parameters
         self.v_min = v_min
@@ -35,7 +36,9 @@ class Hysteresis(ClientNode):
             self.io = 0
 
         self.update_attribute("io", self.io)
+        self._api.add_message(self.simulation, self.name, "io", self.io)
         self.update_attribute("t_set", self.t_set)
+        self._api.add_message(self.simulation, self.name, "t_set", self.t_set)
 
 
 class HysteresisWrapper(Wrapper):

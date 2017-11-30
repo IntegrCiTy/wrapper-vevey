@@ -49,8 +49,22 @@ class Wrapper(Node):
 
         self._channel.basic_ack(delivery_tag=method.delivery_tag)
 
-    def add_message(self, message):
-        self._queue.put(message)
+    def add_message(self, simu, node, attr, time, value, unit=''):
+
+        m = MetaMessage()
+        m.node_name = self.name
+
+        sd = StoreData()
+        sd.simulation_id = simu
+        sd.node_id = node
+        sd.timestep = time
+
+        sd.attribute_name = attr
+        sd.value = value
+        sd.unit = unit
+        m.details.Pack(sd)
+
+        self._queue.put(m)
 
     def on_local(self, ch, method, props, body):
 
@@ -61,7 +75,7 @@ class Wrapper(Node):
             pass
 
         self._channel.basic_ack(delivery_tag=method.delivery_tag)
-        # self.send('', 'wrapper.local.' + self.name, "next")
+        self.send('', 'wrapper.local.' + self.name, "next")
 
     def _get_params(self):
         raise NotImplementedError("Abstract function call.")

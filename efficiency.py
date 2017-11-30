@@ -16,6 +16,8 @@ class Efficiency(ClientNode):
         super().__init__(host, vhost, username, password, config_file,
                          input_attributes, output_attributes, is_first)
 
+        self._api = api
+
         # Parameters
         self.eff = eff
 
@@ -29,6 +31,7 @@ class Efficiency(ClientNode):
         self.p_src = self.p_snk / self.eff
 
         self.update_attribute("p_src", self.p_src)
+        self._api.add_message(self.simulation, self.name, "p_src", self.p_src)
 
 
 class EfficiencyWrapper(Wrapper):

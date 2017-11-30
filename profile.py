@@ -15,6 +15,7 @@ class Profile(ClientNode):
                  input_attributes=None, output_attributes=None, is_first=False):
         super().__init__(host, vhost, username, password, config_file,
                          input_attributes, output_attributes, is_first)
+        self._api = api
         
         # Parameters
         self.profile = profile
@@ -26,6 +27,7 @@ class Profile(ClientNode):
         self.value = self.profile[int(current_time % len(self.profile))]
 
         self.update_attribute("value", self.value)
+        self._api.add_message(self.simulation, self.name, "value", self.value)
 
 
 class ProfileWrapper(Wrapper):
